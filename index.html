@@ -30,6 +30,7 @@
 
                     Hack hint: typing <script>alert(1)</script> in the input field won't work, but
                     typing something like <img src=" " onerror="alert(1)"> will! -->
+                    
 
             <input class="text-center" placeholder="Answer here." id="token-question" style="margin-bottom: 1%;">
 
@@ -46,9 +47,17 @@
 
         input.addEventListener("input", updateValue);
 
-        function updateValue(e) {
+        /* function updateValue(e) {
             log.innerHTML = e.target.value;
-        }
+        } */
+
+        function updateValue(e) {
+    // Remove any previous content
+    log.textContent = ''; 
+    
+    // Create a text node from the user input and append it
+    log.appendChild(document.createTextNode(e.target.value));
+}
 
     </script>
 
